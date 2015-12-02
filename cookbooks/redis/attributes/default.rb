@@ -1,5 +1,6 @@
 default[:redis] = {
   :version => "2.8.13",
+  :utility_name => 'sidekiq',
   :bindport => "6379",
   :unixsocket => "/tmp/redis.sock",
   :basename => "dump.rdb",
