@@ -3,8 +3,15 @@
 # Recipe:: default
 #
 
+Chef::Log.info "Starting redis recipe..."
+
 if ['util'].include?(node[:instance_role])
+
   if node[:name] == node[:redis][:utility_name]
+
+    ey_cloud_report "redis" do
+      message "Setting up redis #{node[:redis][:version]}"
+    end
 
     sysctl "Enable Overcommit Memory" do
       variables 'vm.overcommit_memory' => 1
